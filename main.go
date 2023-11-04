@@ -13,149 +13,128 @@ const (
 )
 
 func main() {
-	/*fmt.Println("Я люблю Шамиля")
-	fmt.Print("Я ")
-	fmt.Print("люблю ")
-	fmt.Print("Шамиля ")
-	fmt.Print("Шамиля ")
+	integerExample()
+	/*
+		// С плавающей точкой
+		// var f float32 = 18
+		// var g float32 = 4.5
+		// var d float64 = 0.23
+		// var pi float64 = 3.14
+		// var e float64 = 2.7
 
-	// Целочисленные
-	// 1
-	//var myValue int64
-	//myValue = 900
-	// 2
-	//myValue := 900
-	//myValue = 900
-	// 3
-	var myValue int32 = 900
-	myValue = myValue + 100
-	fmt.Println(myValue)
-	var (
-		aa int = 1
-		bb int = 2
-	)
-	fmt.Println(aa, bb)
+		// Логические
+		// var isAlive bool = true //
+		// isAlive = false
+		// var isEnabled bool = false
 
-	// С плавающей точкой
-	// var f float32 = 18
-	// var g float32 = 4.5
-	// var d float64 = 0.23
-	// var pi float64 = 3.14
-	// var e float64 = 2.7
+		// Строки
+		var name string = "Том Сойер"
+		name = name + " любимая книга"
+		fmt.Println(name)
+		//color := "blue"
 
-	// Логические
-	// var isAlive bool = true //
-	// isAlive = false
-	// var isEnabled bool = false
+		// +
+		// int
+		// float
+		var a float64 = 8.1
+		b := 8.0
+		c := a + b
+		fmt.Println(c)
+		// string
 
-	// Строки
-	var name string = "Том Сойер"
-	name = name + " любимая книга"
-	fmt.Println(name)
-	//color := "blue"
+		// -
+		// int
+		// float
 
-	// +
-	// int
-	// float
-	var a float64 = 8.1
-	b := 8.0
-	c := a + b
-	fmt.Println(c)
-	// string
+		// /
+		// int
+		// float
+		// todo ТАК НЕЛЬЗЯ! x должен быть дробным числом
+		// var x int
+		// var y, z float64
+		// x := y / z
 
-	// -
-	// int
-	// float
+		// *
+		// int
+		// float
 
-	// /
-	// int
-	// float
-	// todo ТАК НЕЛЬЗЯ! x должен быть дробным числом
-	// var x int
-	// var y, z float64
-	// x := y / z
+		// логические операции
+		// bool
 
-	// *
-	// int
-	// float
+		var f float32
+		fmt.Println("my empty float32 =", f)
 
-	// логические операции
-	// bool
+		// ТЕМА: логические операции
+		var bl bool
+		bl = 5 == 5
+		fmt.Println(bl)
+		val1 := 5
+		val2 := 6
+		bl = val1 != val2
+		fmt.Println(bl)
 
-	var f float32
-	fmt.Println("my empty float32 =", f)
+		// ТЕМА: if
+		if val2 > 0 {
+			fmt.Println("Больше нуля")
+		} else {
+			fmt.Println("Меньше нуля")
+		}
+		if val2 > 0 {
+			fmt.Println("Больше нуля")
+		}
 
-	// ТЕМА: логические операции
-	var bl bool
-	bl = 5 == 5
-	fmt.Println(bl)
-	val1 := 5
-	val2 := 6
-	bl = val1 != val2
-	fmt.Println(bl)
+		// ТЕМА: массив
+		// [1,2,3,4,10]
+		var mySlice []int = []int{1, 2, 3}
+		fmt.Println("mySlice =", mySlice)
+		slice := []int{1, 2, 3, 4, 5}
+		//var slice []int
+		fmt.Println("slice =", slice)
 
-	// ТЕМА: if
-	if val2 > 0 {
-		fmt.Println("Больше нуля")
-	} else {
-		fmt.Println("Меньше нуля")
-	}
-	if val2 > 0 {
-		fmt.Println("Больше нуля")
-	}
+		fmt.Println("slice[0] =", slice[0])
+		fmt.Println("slice len =", len(slice))
 
-	// ТЕМА: массив
-	// [1,2,3,4,10]
-	var mySlice []int = []int{1, 2, 3}
-	fmt.Println("mySlice =", mySlice)
-	slice := []int{1, 2, 3, 4, 5}
-	//var slice []int
-	fmt.Println("slice =", slice)
+		// ТЕМА: цикл
+		for i := 0; i < len(slice); i = i + 1 {
+			fmt.Print("i =", i)
+			fmt.Println(" slice[i] =", slice[i])
+		}
 
-	fmt.Println("slice[0] =", slice[0])
-	fmt.Println("slice len =", len(slice))
+		for i, v := range slice {
+			fmt.Print("i =", i)
+			fmt.Println(" v =", v)
+		}
 
-	// ТЕМА: цикл
-	for i := 0; i < len(slice); i = i + 1 {
-		fmt.Print("i =", i)
-		fmt.Println(" slice[i] =", slice[i])
-	}
+		var bigSlice []int
 
-	for i, v := range slice {
-		fmt.Print("i =", i)
-		fmt.Println(" v =", v)
-	}
+		for i := 2; i < 100; i = i + 2 {
+			bigSlice = append(bigSlice, i)
+		}
+		fmt.Println(bigSlice)
 
-	var bigSlice []int
+		// ТЕМА: входные параметры
+		fmt.Println("argument 0 =", os.Args[0])
+		fmt.Println("argument 1 =", os.Args[1])
+		firstArg, _ := strconv.Atoi(os.Args[1])
+		secondArg, _ := strconv.Atoi(os.Args[2])
+		fmt.Println("plus result =", firstArg+secondArg)
+		fmt.Println("minus result =", firstArg-secondArg)
 
-	for i := 2; i < 100; i = i + 2 {
-		bigSlice = append(bigSlice, i)
-	}
-	fmt.Println(bigSlice)
+		fmt.Println("args len =", len(os.Args))
 
-	// ТЕМА: входные параметры
-	fmt.Println("argument 0 =", os.Args[0])
-	fmt.Println("argument 1 =", os.Args[1])
-	firstArg, _ := strconv.Atoi(os.Args[1])
-	secondArg, _ := strconv.Atoi(os.Args[2])
-	fmt.Println("plus result =", firstArg+secondArg)
-	fmt.Println("minus result =", firstArg-secondArg)
+		var result string
+		for index := 1; index < len(os.Args); index = index + 1 {
 
-	fmt.Println("args len =", len(os.Args))
+			result = result + os.Args[index]
+		}
+		fmt.Println("string result =", result)
 
-	var result string
-	for index := 1; index < len(os.Args); index = index + 1 {
-
-		result = result + os.Args[index]
-	}
-	fmt.Println("string result =", result)
-
-	var intResult int
-	for index := 1; index < len(os.Args); index = index + 1 {
-		intArg, _ := strconv.Atoi(os.Args[index])
-		intResult = intResult + intArg
-	}
-	fmt.Println("int result =", intResult)*/
+		var intResult int
+		for index := 1; index < len(os.Args); index = index + 1 {
+			intArg, _ := strconv.Atoi(os.Args[index])
+			intResult = intResult + intArg
+		}
+		fmt.Println("int result =", intResult)*/
 
 	//fmt.Println(os.Args[1])
 
@@ -310,4 +289,27 @@ func reversArray2(slice []int) []int {
 		slice[len(slice)-(i+1)] = c
 	}
 	return slice
+}
+
+// Целочисленные
+func integerExample() {
+	// 1 Объявление переменной через var
+	var myValue int64
+	myValue = 900
+	fmt.Println("Объявление int64 переменной через var", myValue)
+	// 2 Сокращенное объявление целочисленной переменной через :=
+	myValue2 := 9
+	fmt.Println("Сокращенное объявление целочисленной переменной через :=", myValue2)
+	// 3 Объявление переменной через var с последующим присвоением значения
+	var myValue3 int32 = 100
+	fmt.Println("Объявление переменной через var с последующим присвоением значения", myValue3)
+	// Присвоение нового значения переменной
+	myValue3 = myValue3 + 100
+	fmt.Println("Присвоение нового значения переменной", myValue3)
+	// Создание двух переменных
+	var (
+		aa int = 1
+		bb int = 2
+	)
+	fmt.Println("Создание двух переменных через var()", aa, bb)
 }
