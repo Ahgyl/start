@@ -186,6 +186,10 @@ func main() {
 	// ТЕМА: пакеты и области видимости
 	// ТЕМА: ссылки
 
+	mapExample()
+
+	map1 := sliceToMap([]int{8, 88, 888, 8888})
+	fmt.Println("Мапа из слайса", map1)
 }
 
 // 1 1 2 3 5 8
@@ -264,7 +268,7 @@ func squareSquare(side float64) (square float64, err error) {
 	return
 }
 
-func sumMass(nums []int, target int) []int {
+func twoSum(nums []int, target int) []int {
 	for i := 0; i < len(nums)-1; i = i + 1 {
 		for j := i + 1; j < len(nums); j = j + 1 {
 			if nums[i]+nums[j] == target {
@@ -312,4 +316,44 @@ func integerExample() {
 		bb int = 2
 	)
 	fmt.Println("Создание двух переменных через var()", aa, bb)
+}
+
+func mapExample() {
+	var firstMap map[string]bool
+	firstMap = make(map[string]bool)
+	firstMap["London"] = true
+	firstMap["Paris"] = false
+	firstMap["Tokio"] = true
+	fmt.Println("Города где я была в хэш таблице", firstMap)
+	for key, value := range firstMap {
+		if value {
+			fmt.Println("я была в городе", key)
+		}
+	}
+
+	ok, value := firstMap["Kazan"]
+	if !ok {
+		fmt.Println("Казани нет в списке")
+	} else {
+		fmt.Println("Казань есть в списке и равно", value)
+	}
+	firstMap["Kazan"] = true
+	ok, value = firstMap["Kazan"]
+	if !ok {
+		fmt.Println("Казани нет в списке до сих пор")
+	} else {
+		fmt.Println("Казань есть теперь в списке и равно", value)
+	}
+	fmt.Println("Количество определенных городов в хэш мапе равно", len(firstMap))
+}
+
+func sliceToMap(slice []int) map[int]int {
+	if len(slice) == 0 {
+		return nil
+	}
+	map1 := make(map[int]int)
+	for key, value := range slice {
+		map1[value] = key
+	}
+	return map1
 }
