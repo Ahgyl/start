@@ -190,6 +190,8 @@ func main() {
 
 	map1 := sliceToMap([]int{8, 88, 888, 8888})
 	fmt.Println("Мапа из слайса", map1)
+
+	fmt.Println("twoSum =", twoSum2([]int{2, 7, 11, 15}, 9))
 }
 
 // 1 1 2 3 5 8
@@ -279,6 +281,23 @@ func twoSum(nums []int, target int) []int {
 	return nil
 }
 
+func twoSum2(nums []int, target int) []int {
+	m := make(map[int]int)
+	for key, value := range nums {
+		a := target - value
+		b, ok := m[a]
+		if ok {
+			if key == b {
+				continue
+			}
+			return []int{key, b}
+		} else {
+			m[value] = key
+		}
+	}
+	return nil
+}
+
 func reversArray(slice []int) (output []int) {
 	for i := len(slice) - 1; i >= 0; i = i - 1 {
 		output = append(output, slice[i])
@@ -331,14 +350,14 @@ func mapExample() {
 		}
 	}
 
-	ok, value := firstMap["Kazan"]
+	value, ok := firstMap["Kazan"]
 	if !ok {
 		fmt.Println("Казани нет в списке")
 	} else {
 		fmt.Println("Казань есть в списке и равно", value)
 	}
 	firstMap["Kazan"] = true
-	ok, value = firstMap["Kazan"]
+	value, ok = firstMap["Kazan"]
 	if !ok {
 		fmt.Println("Казани нет в списке до сих пор")
 	} else {
