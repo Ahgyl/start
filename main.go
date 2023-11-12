@@ -4,6 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"math"
+
+	"start/slice"
 )
 
 const (
@@ -14,6 +16,8 @@ const (
 
 func main() {
 	integerExample()
+	slice.Example()
+
 	/*
 		// С плавающей точкой
 		// var f float32 = 18
@@ -83,17 +87,6 @@ func main() {
 			fmt.Println("Больше нуля")
 		}
 
-		// ТЕМА: массив
-		// [1,2,3,4,10]
-		var mySlice []int = []int{1, 2, 3}
-		fmt.Println("mySlice =", mySlice)
-		slice := []int{1, 2, 3, 4, 5}
-		//var slice []int
-		fmt.Println("slice =", slice)
-
-		fmt.Println("slice[0] =", slice[0])
-		fmt.Println("slice len =", len(slice))
-
 		// ТЕМА: цикл
 		for i := 0; i < len(slice); i = i + 1 {
 			fmt.Print("i =", i)
@@ -104,13 +97,6 @@ func main() {
 			fmt.Print("i =", i)
 			fmt.Println(" v =", v)
 		}
-
-		var bigSlice []int
-
-		for i := 2; i < 100; i = i + 2 {
-			bigSlice = append(bigSlice, i)
-		}
-		fmt.Println(bigSlice)
 
 		// ТЕМА: входные параметры
 		fmt.Println("argument 0 =", os.Args[0])
@@ -179,19 +165,20 @@ func main() {
 	fmt.Println(fmt.Sprintf("%d число фиббоначи = %d", n, fib))
 
 	// ТЕМА: решение первой задачи из leetcode https://leetcode.com/problems/two-sum/
+	fmt.Println("twoSum =", twoSum2([]int{2, 7, 11, 15}, 9))
 
-	fmt.Println(reversArray([]int{0, 9, 8, 5}))
-	fmt.Println(reversArray2([]int{1, 2, 3, 4, 5}))
+	//Слайс в обратном порядке
+	fmt.Println("Слайс [0, 9, 8, 5] реверснули с доп слайсом и получили =", slice.ReversArray([]int{0, 9, 8, 5}))
+	fmt.Println("Слайс [1, 2, 3, 4, 5] реверснули без доп слайса и получили =", slice.ReversArray2([]int{1, 2, 3, 4, 5}))
 
 	// ТЕМА: пакеты и области видимости
 	// ТЕМА: ссылки
 
 	mapExample()
 
-	map1 := sliceToMap([]int{8, 88, 888, 8888})
+	map1 := slice.SliceToMap([]int{8, 88, 888, 8888})
 	fmt.Println("Мапа из слайса", map1)
 
-	fmt.Println("twoSum =", twoSum2([]int{2, 7, 11, 15}, 9))
 }
 
 // 1 1 2 3 5 8
@@ -298,22 +285,6 @@ func twoSum2(nums []int, target int) []int {
 	return nil
 }
 
-func reversArray(slice []int) (output []int) {
-	for i := len(slice) - 1; i >= 0; i = i - 1 {
-		output = append(output, slice[i])
-	}
-	return output
-}
-
-func reversArray2(slice []int) []int {
-	for i := 0; i < len(slice)/2; i = i + 1 {
-		c := slice[i]
-		slice[i] = slice[len(slice)-(i+1)]
-		slice[len(slice)-(i+1)] = c
-	}
-	return slice
-}
-
 // Целочисленные
 func integerExample() {
 	// 1 Объявление переменной через var
@@ -364,15 +335,4 @@ func mapExample() {
 		fmt.Println("Казань есть теперь в списке и равно", value)
 	}
 	fmt.Println("Количество определенных городов в хэш мапе равно", len(firstMap))
-}
-
-func sliceToMap(slice []int) map[int]int {
-	if len(slice) == 0 {
-		return nil
-	}
-	map1 := make(map[int]int)
-	for key, value := range slice {
-		map1[value] = key
-	}
-	return map1
 }
