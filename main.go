@@ -179,6 +179,10 @@ func main() {
 	map1 := slice.SliceToMap([]int{8, 88, 888, 8888})
 	fmt.Println("Мапа из слайса", map1)
 
+	sliceForSort := []int{9, 8, 7, 6, 5, 4}
+	fmt.Print("Перед сортировкой =", sliceForSort)
+	slice.BubbleSort(sliceForSort)
+	fmt.Println("после сортировки =", sliceForSort)
 }
 
 // 1 1 2 3 5 8
