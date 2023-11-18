@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math"
 
+	"start/data_type"
 	"start/slice"
 )
 
@@ -183,6 +184,9 @@ func main() {
 	fmt.Print("Перед сортировкой =", sliceForSort)
 	slice.BubbleSort(sliceForSort)
 	fmt.Println("после сортировки =", sliceForSort)
+
+	//Тема: изучение структур
+	data_type.StructExample()
 }
 
 // 1 1 2 3 5 8
