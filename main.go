@@ -20,63 +20,7 @@ func main() {
 	slice.Example()
 
 	/*
-		// С плавающей точкой
-		// var f float32 = 18
-		// var g float32 = 4.5
-		// var d float64 = 0.23
-		// var pi float64 = 3.14
-		// var e float64 = 2.7
 
-		// Логические
-		// var isAlive bool = true //
-		// isAlive = false
-		// var isEnabled bool = false
-
-		// Строки
-		var name string = "Том Сойер"
-		name = name + " любимая книга"
-		fmt.Println(name)
-		//color := "blue"
-
-		// +
-		// int
-		// float
-		var a float64 = 8.1
-		b := 8.0
-		c := a + b
-		fmt.Println(c)
-		// string
-
-		// -
-		// int
-		// float
-
-		// /
-		// int
-		// float
-		// todo ТАК НЕЛЬЗЯ! x должен быть дробным числом
-		// var x int
-		// var y, z float64
-		// x := y / z
-
-		// *
-		// int
-		// float
-
-		// логические операции
-		// bool
-
-		var f float32
-		fmt.Println("my empty float32 =", f)
-
-		// ТЕМА: логические операции
-		var bl bool
-		bl = 5 == 5
-		fmt.Println(bl)
-		val1 := 5
-		val2 := 6
-		bl = val1 != val2
-		fmt.Println(bl)
 
 		// ТЕМА: if
 		if val2 > 0 {
@@ -187,6 +131,8 @@ func main() {
 
 	//Тема: изучение структур
 	data_type.StructExample()
+
+	data_type.Example()
 }
 
 // 1 1 2 3 5 8
