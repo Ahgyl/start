@@ -21,71 +21,23 @@ func main() {
 
 	/*
 
-
-		// ТЕМА: if
-		if val2 > 0 {
-			fmt.Println("Больше нуля")
-		} else {
-			fmt.Println("Меньше нуля")
+		// ТЕМА: функции
+		/*b, err := fmt.Println("string")
+		if err != nil {
+			panic(err)
 		}
-		if val2 > 0 {
-			fmt.Println("Больше нуля")
+		fmt.Println("b =", b)
+
+		sumResult := sum(1, -9)
+		fmt.Println(sumResult)
+
+		var gipotenuza float64
+		var err error
+		gipotenuza, err = calculateGipotenuza(3, 4)
+		if err != nil {
+			panic(err)
 		}
-
-		// ТЕМА: цикл
-		for i := 0; i < len(slice); i = i + 1 {
-			fmt.Print("i =", i)
-			fmt.Println(" slice[i] =", slice[i])
-		}
-
-		for i, v := range slice {
-			fmt.Print("i =", i)
-			fmt.Println(" v =", v)
-		}
-
-		// ТЕМА: входные параметры
-		fmt.Println("argument 0 =", os.Args[0])
-		fmt.Println("argument 1 =", os.Args[1])
-		firstArg, _ := strconv.Atoi(os.Args[1])
-		secondArg, _ := strconv.Atoi(os.Args[2])
-		fmt.Println("plus result =", firstArg+secondArg)
-		fmt.Println("minus result =", firstArg-secondArg)
-
-		fmt.Println("args len =", len(os.Args))
-
-		var result string
-		for index := 1; index < len(os.Args); index = index + 1 {
-
-			result = result + os.Args[index]
-		}
-		fmt.Println("string result =", result)
-
-		var intResult int
-		for index := 1; index < len(os.Args); index = index + 1 {
-			intArg, _ := strconv.Atoi(os.Args[index])
-			intResult = intResult + intArg
-		}
-		fmt.Println("int result =", intResult)*/
-
-	//fmt.Println(os.Args[1])
-
-	// ТЕМА: функции
-	/*b, err := fmt.Println("string")
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println("b =", b)
-
-	sumResult := sum(1, -9)
-	fmt.Println(sumResult)
-
-	var gipotenuza float64
-	var err error
-	gipotenuza, err = calculateGipotenuza(3, 4)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println("Ура, мы получили гипотенузу =", gipotenuza)*/
+		fmt.Println("Ура, мы получили гипотенузу =", gipotenuza)*/
 
 	// ТЕМА: простенькие задачи
 	// площадь круга Pi*R*R
