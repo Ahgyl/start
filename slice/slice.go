@@ -2,6 +2,8 @@ package slice
 
 import (
 	"fmt"
+	"os"
+	"strconv"
 )
 
 func Example() {
@@ -78,4 +80,41 @@ func BubbleSort(slice []int) []int {
 		}
 	}
 	return slice
+}
+
+func Args() {
+	// ТЕМА: входные параметры
+	//os.Args это слайс который содержит аргументы командной строки, начиная с имени программы.
+	// Аргументы программы приходят в виде массива строк. Через пробел это новая строка.
+	// Первым, т.е. в нулевой позиции приходит имя программы, а название этой программы даешь во время билда.
+	// Перед всеми этими манипуляциями нужно построить (сбилдить) из исходного кода программу.
+	fmt.Println("argument 0 =", os.Args[0])
+	fmt.Println("argument 1 =", os.Args[1])
+	// Конвертация строки в число (int). Произойдет только если каждый элемент строки является цифрой.
+	// При этом перечисление через пробел аргументов в терминале является каждая отдельной строкой.
+	// если передали аргументы в виде [./prog 11 а3 44]: Args[0]=./prog; Args[1]=11; Args[2]=a3; Args[3]=44.
+	// Args[1] и Args[3] можно будет сконвертировать, а Args[2] нет потому что присутствует буква.
+	firstArg, _ := strconv.Atoi(os.Args[1])
+	secondArg, err := strconv.Atoi(os.Args[2])
+	if err != nil {
+		fmt.Println(fmt.Sprintf("Произошла ошибка при конвертации %s в int: %v", os.Args[2], err))
+	}
+	fmt.Println("plus result =", firstArg+secondArg)
+	fmt.Println("minus result =", firstArg-secondArg)
+
+	fmt.Println("args len =", len(os.Args))
+
+	var result string
+	for index := 1; index < len(os.Args); index = index + 1 {
+
+		result = result + os.Args[index]
+	}
+	fmt.Println("string result =", result)
+
+	var intResult int
+	for index := 1; index < len(os.Args); index = index + 1 {
+		intArg, _ := strconv.Atoi(os.Args[index])
+		intResult = intResult + intArg
+	}
+	fmt.Println("int result =", intResult)
 }
