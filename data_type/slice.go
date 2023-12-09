@@ -1,4 +1,4 @@
-package slice
+package data_type
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-func Example() {
+func ExampleSlice() {
 	fmt.Println("===Package slice===")
 	// ТЕМА: массив
 	var mySlice = []int{1, 2, 3}
@@ -25,6 +25,20 @@ func Example() {
 		sliceAppend = append(sliceAppend, i)
 	}
 	fmt.Println("После append в цикле sliceAppend", sliceAppend)
+
+	//Слайс в обратном порядке
+	fmt.Println("Слайс [0, 9, 8, 5] реверснули с доп слайсом и получили =", ReversArray([]int{0, 9, 8, 5}))
+	fmt.Println("Слайс [1, 2, 3, 4, 5] реверснули без доп слайса и получили =", ReversArray2([]int{1, 2, 3, 4, 5}))
+
+	// Дан слайс, конвертируем в мапу
+	map1 := SliceToMap([]int{8, 88, 888, 8888})
+	fmt.Println("Мапа из слайса", map1)
+
+	// Сортировка пузырьком
+	sliceForSort := []int{9, 8, 7, 6, 5, 4}
+	fmt.Print("Перед сортировкой =", sliceForSort)
+	BubbleSort(sliceForSort)
+	fmt.Println("после сортировки =", sliceForSort)
 }
 
 // Запись слайса в обратном порядке
